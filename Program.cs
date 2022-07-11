@@ -49,7 +49,25 @@ namespace PP0506A
 
         public int CompareTo(Punkt other)
         {
-            return (int) (this.OdlegloscOdSrodka() - other.OdlegloscOdSrodka());
+            if (other == null)
+            {
+                return 1;
+            }
+
+            double daneWyjsciowe = this.OdlegloscOdSrodka() - other.OdlegloscOdSrodka();
+
+            if (daneWyjsciowe > 0)
+            {
+                return 1;
+            }
+            else if (daneWyjsciowe < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 
@@ -82,9 +100,10 @@ namespace PP0506A
 
             listaPunktow.Sort();
 
-            foreach (Punkt punkt in listaPunktow) {
+            foreach (Punkt punkt in listaPunktow)
+            {
                 Console.WriteLine(punkt);
-            
+
             }
 
             Console.ReadLine();
